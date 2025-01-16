@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>JetCache</artifactId>
+    <description>JetCache学习工程</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

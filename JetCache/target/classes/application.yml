@@ -1,0 +1,49 @@
+spring:
+  redis:
+    host: 39.104.201.154
+    port: 6379
+    database: 0
+    password: 123456
+
+# 配置JetCache的相关参数
+jetcache:
+  # 统计信息的收集间隔时间（分钟）
+  statIntervalMinutes: 1
+  # 是否在缓存名称中包含区域信息
+  areaInCacheName: false
+  # 本地缓存的配置
+  local:
+    default:
+      # 本地缓存的类型为LinkedHashMap
+      type: linkedhashmap
+      # 使用Fastjson作为键的转换器
+      keyConvertor: fastjson2
+  # 远程缓存的配置
+  remote:
+    default:
+      # 远程缓存的类型为Redis
+      type: redis
+      # 使用Fastjson2作为键的转换器
+      keyConvertor: fastjson2
+      # 指定用于广播的频道
+      broadcastChannel: projectA
+      # 使用Java序列化作为值的编码方式
+      valueEncoder: java
+      # 使用Java反序列化作为值的解码方式
+      valueDecoder: java
+      # 连接池的配置
+      poolConfig:
+        # 最小空闲连接数
+        minIdle: 5
+        # 最大空闲连接数
+        maxIdle: 20
+        # 最大总连接数
+        maxTotal: 50
+      # Redis服务器的主机地址
+      host: 39.104.201.154
+      # Redis服务器的端口号
+      port: 6379
+      password: 123456
+logging:
+  config: classpath:logback-spring.xml
+
